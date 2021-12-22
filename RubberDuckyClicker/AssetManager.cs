@@ -15,6 +15,7 @@ namespace RubberDuckyClicker
         public static SpriteFont TheFont;
         public static SpriteFont Score;
         public static SpriteFont StatsFont;
+        public static SpriteFont AchieveFont;
 
         /* Texture2Ds */
         public static Texture2D DuckyLarge;
@@ -26,6 +27,7 @@ namespace RubberDuckyClicker
         public static Texture2D Achieve01;
         public static Texture2D Achieve02;
         public static Texture2D Achieve03;
+        public static Texture2D Achieve04;
 
         /* Sounds */
         public static SoundEffect Quack_1;
@@ -90,6 +92,7 @@ namespace RubberDuckyClicker
             TheFont = LoadSpriteFont("TheFont");
             Score = LoadSpriteFont("Score");
             StatsFont = LoadSpriteFont("StatFont");
+            AchieveFont = LoadSpriteFont("Achievements");
         }
 
         private static void LoadTexture2Ds()
@@ -99,9 +102,10 @@ namespace RubberDuckyClicker
             AwardIcon = LoadTexture2D("AchieveIcons/Awards");
 
             Achieve00 = LoadTexture2D("AchieveIcons/(00)locked");
-            Achieve01 = LoadTexture2D("AchieveIcons/(01)1quack");
-            Achieve02 = LoadTexture2D("AchieveIcons/(02)quack");
-            Achieve03 = LoadTexture2D("AchieveIcons/(03)familiar");
+            Achieve01 = LoadTexture2D("AchieveIcons/(03)familiar");
+            Achieve02 = LoadTexture2D("AchieveIcons/(01)1quack");
+            Achieve03 = LoadTexture2D("AchieveIcons/(02)quack");
+            Achieve04 = LoadTexture2D("AchieveIcons/(04)2quack");
         }
 
         private static void LoadSounds()

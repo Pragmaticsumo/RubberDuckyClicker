@@ -61,6 +61,18 @@
 /processorParam:TextureFormat=Color
 /build:AchieveIcons/(03)familiar.png
 
+#begin AchieveIcons/(04)2quack.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:AchieveIcons/(04)2quack.png
+
 #begin AchieveIcons/Awards.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -72,6 +84,13 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:AchieveIcons/Awards.png
+
+#begin Achievements.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:Achievements.spritefont
 
 #begin basic-ducky.png
 /importer:TextureImporter

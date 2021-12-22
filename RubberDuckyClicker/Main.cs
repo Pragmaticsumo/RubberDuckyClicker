@@ -19,7 +19,7 @@ namespace RubberDuckyClicker
         public static Cursor Cursor = new Cursor();
         public static StatIcon StatIcon = new StatIcon();
         public static AwardsIcon AwardIcon = new AwardsIcon();
-        public static Achievements Achievement = new Achievements();
+        public static Achievement Achievements = new Achievement();
         public static Vector2 WindowMeasurements = Vector2.Zero;
         public static int Score;
         public static int maxScore;
@@ -34,11 +34,6 @@ namespace RubberDuckyClicker
         public static SoundEffect click1 = AssetManager.Click_1;
         public static SoundEffect click2 = AssetManager.Click_2;
         public static SoundEffect achieveUnlock = AssetManager.AchieveUnlock;
-
-        /*Achievements (true = unlocked and false = locked)*/
-        public static bool achieve01 = false;
-        public static bool achieve02 = false;
-        public static bool achieve03 = false;
 
         public static void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -69,14 +64,10 @@ namespace RubberDuckyClicker
             {
                 graphicsDevice.Clear(Color.Black);
 
-                if (achieve03 == false)
-                {
-                    Achievement.Draw00(gameTime, spriteBatch);
-                }
-                else if (achieve03 == true)
-                {
-                    Achievement.Draw03(gameTime, spriteBatch);
-                }
+                Achievements.Draw01(gameTime, spriteBatch);
+                Achievements.Draw02(gameTime, spriteBatch);
+                Achievements.Draw03(gameTime, spriteBatch);
+                Achievements.Draw04(gameTime, spriteBatch);
             }
         }
 
@@ -91,10 +82,14 @@ namespace RubberDuckyClicker
             if (Game1.gameState == Game1.GameStates.Playing)
             {
                 LargeDucky.Update(gameTime);
-                Cursor.Update(gameTime);
                 StatIcon.Update(gameTime);
+                Cursor.Update(gameTime);
 
                 AwardIcon.Update(gameTime);
+
+                Achievements.Update02(gameTime);
+                Achievements.Update03(gameTime);
+                Achievements.Update04(gameTime);
             }
             else if (Game1.gameState == Game1.GameStates.Stats)
             {
@@ -103,15 +98,18 @@ namespace RubberDuckyClicker
                     click2.Play();
                     Game1.gameState = Game1.GameStates.Playing;
                 }
+                Cursor.Update(gameTime);
             }
             else if (Game1.gameState == Game1.GameStates.Award)
             {
+                Cursor.Update(gameTime);
+                Achievements.Update01(gameTime);
+
                 if (DuckyKeyboard.IsKeyDown(Keys.Escape) && PrevDuckyKeyboard.IsKeyUp(Keys.Escape))
                 {
                     click2.Play();
                     Game1.gameState = Game1.GameStates.Playing;
                 }
-                Achievement.Update03(gameTime);
             }
         }
 
@@ -136,7 +134,12 @@ namespace RubberDuckyClicker
                 Vector2 escapeTextSize = AssetManager.StatsFont.MeasureString("Press 'esc' to leave...");
 
                 spriteBatch.DrawString(AssetManager.StatsFont, "Total Number Of Quacks: " + Convert.ToString(maxScore), Vector2.Zero, Color.LimeGreen);
-                spriteBatch.DrawString(AssetManager.StatsFont, "Press 'esc' to leave...", new Vector2(0, graphicsDevice.Viewport.Height - escapeTextSize.Y), Color.LimeGreen);
+                spriteBatch.DrawString(AssetManager.StatsFont, "Press 'esc' to leave...", new Vector2(470, graphicsDevice.Viewport.Height - escapeTextSize.Y), Color.LimeGreen);
+            }
+            else if (Game1.gameState == Game1.GameStates.Award)
+            {
+                Vector2 escapeTextSize = AssetManager.StatsFont.MeasureString("Press 'esc' to leave...");
+                spriteBatch.DrawString(AssetManager.StatsFont, "Press 'esc' to leave...", new Vector2(470, graphicsDevice.Viewport.Height - escapeTextSize.Y), Color.LimeGreen);
             }
         }
     }
