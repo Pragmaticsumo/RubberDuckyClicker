@@ -104,6 +104,18 @@
 /processorParam:TextureFormat=Color
 /build:basic-ducky.png
 
+#begin clown-ducky.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:clown-ducky.png
+
 #begin Gear.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -116,11 +128,35 @@
 /processorParam:TextureFormat=Color
 /build:Gear.png
 
+#begin liberty-ducky.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:liberty-ducky.png
+
 #begin quack.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:quack.wav
+
+#begin santa-ducky.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:santa-ducky.png
 
 #begin Score.spritefont
 /importer:FontDescriptionImporter
@@ -146,6 +182,18 @@
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:SFX/Click_2.wav
+
+#begin SkinsIcons.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:SkinsIcons.png
 
 #begin StatFont.spritefont
 /importer:FontDescriptionImporter

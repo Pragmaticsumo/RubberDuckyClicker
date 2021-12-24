@@ -12,7 +12,10 @@ namespace RubberDuckyClicker
         public SpriteBatch DuckySpriteBatch { get; private set; }
 
         public static GameStates gameState;
-        public enum GameStates { Playing, Stats, Shop, Egg, Award }
+        public enum GameStates { Playing, Stats, Shop, Egg, Award, Skins }
+
+        public static SkinState skinState;
+        public enum SkinState { Default, Liberty, Clown, Santa }
 
         public Game1()
         {

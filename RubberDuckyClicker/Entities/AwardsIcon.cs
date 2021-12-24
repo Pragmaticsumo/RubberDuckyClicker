@@ -16,7 +16,7 @@ namespace RubberDuckyClicker.Entities
 
         public override void Update(GameTime gameTime)
         {
-            Hitbox = new Rectangle(780 - AssetManager.AwardIcon.Width, 110 - AssetManager.AwardIcon.Height, AssetManager.AwardIcon.Width, AssetManager.AwardIcon.Height);
+            Hitbox = new Rectangle(780 - AssetManager.AwardIcon.Width, 100 - AssetManager.AwardIcon.Height, AssetManager.AwardIcon.Width, AssetManager.AwardIcon.Height);
 
             if (Main.Cursor.Hitbox.Intersects(Main.AwardIcon.Hitbox))
             {
@@ -34,6 +34,6 @@ namespace RubberDuckyClicker.Entities
             }
         }
 
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch) => spriteBatch.Draw(AssetManager.AwardIcon, new Vector2(780 - AssetManager.AwardIcon.Width / 2, 20 + AssetManager.AwardIcon.Height / 2), null, Color.White, 0f, new Vector2(AssetManager.AwardIcon.Width, AssetManager.AwardIcon.Height) / 2f, AwardScale, SpriteEffects.None, 0f);
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch) => spriteBatch.Draw(AssetManager.AwardIcon, new Vector2(780 - AssetManager.AwardIcon.Width / 2, 90 - AssetManager.AwardIcon.Height / 2), null, Color.White, 0f, new Vector2(AssetManager.AwardIcon.Width, AssetManager.AwardIcon.Height) / 2f, AwardScale, SpriteEffects.None, 0f);
     }
 }

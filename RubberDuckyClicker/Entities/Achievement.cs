@@ -53,6 +53,7 @@ namespace RubberDuckyClicker.Entities
                     {
                         Main.achieveUnlock.Play();
                         isUnlocked01 = true;
+                        Main.achievementNumber++;
                     }
                 }
             }
@@ -77,6 +78,7 @@ namespace RubberDuckyClicker.Entities
                 {
                     Main.achieveUnlock.Play();
                     isUnlocked02 = true;
+                    Main.achievementNumber++;
                 }
             }
         }
@@ -100,6 +102,7 @@ namespace RubberDuckyClicker.Entities
                 {
                     Main.achieveUnlock.Play();
                     isUnlocked03 = true;
+                    Main.achievementNumber++;
                 }
             }
         }
@@ -123,6 +126,7 @@ namespace RubberDuckyClicker.Entities
                 {
                     Main.achieveUnlock.Play();
                     isUnlocked04 = true;
+                    Main.achievementNumber++;
                 }
             }
         }

@@ -11,16 +11,22 @@ namespace RubberDuckyClicker
 {
     public static class AssetManager
     {
-        /* SpriteFonts */
+        /*SpriteFonts*/
         public static SpriteFont TheFont;
         public static SpriteFont Score;
         public static SpriteFont StatsFont;
         public static SpriteFont AchieveFont;
 
-        /* Texture2Ds */
-        public static Texture2D DuckyLarge;
+        /*Texture2Ds*/
         public static Texture2D StatIcon;
         public static Texture2D AwardIcon;
+        public static Texture2D SkinsIcon;
+
+        /*Skins*/
+        public static Texture2D DuckyLarge;
+        public static Texture2D LibertyDuck;
+        public static Texture2D ClownDucky;
+        public static Texture2D SantaDucky;
 
         /*AchievementIcons*/
         public static Texture2D Achieve00;
@@ -29,7 +35,7 @@ namespace RubberDuckyClicker
         public static Texture2D Achieve03;
         public static Texture2D Achieve04;
 
-        /* Sounds */
+        /*Sounds*/
         public static SoundEffect Quack_1;
         public static SoundEffect Click_1;
         public static SoundEffect Click_2;
@@ -98,8 +104,13 @@ namespace RubberDuckyClicker
         private static void LoadTexture2Ds()
         {
             DuckyLarge = LoadTexture2D("basic-ducky");
+            LibertyDuck = LoadTexture2D("liberty-ducky");
+            ClownDucky = LoadTexture2D("clown-ducky");
+            SantaDucky = LoadTexture2D("santa-ducky");
+
             StatIcon = LoadTexture2D("StatsIcon");
             AwardIcon = LoadTexture2D("AchieveIcons/Awards");
+            SkinsIcon = LoadTexture2D("SkinsIcons");
 
             Achieve00 = LoadTexture2D("AchieveIcons/(00)locked");
             Achieve01 = LoadTexture2D("AchieveIcons/(03)familiar");

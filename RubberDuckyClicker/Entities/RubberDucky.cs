@@ -23,43 +23,136 @@ namespace RubberDuckyClicker.Entities
 
         public override void Update(GameTime gameTime)
         {
-            Position = ScreenMiddle;
-            Hitbox = new Rectangle((int)ScreenMiddle.X - AssetManager.DuckyLarge.Width / 2, (int)ScreenMiddle.Y - AssetManager.DuckyLarge.Height / 2, AssetManager.DuckyLarge.Width, AssetManager.DuckyLarge.Height);
-
-            if (Main.Cursor.Hitbox.Intersects(Main.LargeDucky.Hitbox))
+            if (Game1.skinState == Game1.SkinState.Default)
             {
-                duckyScale = MathHelper.Lerp(duckyScale, 1f, 0.15f);
-                rotationSpeed = MathHelper.Lerp(rotationSpeed, 0.75f, 0.025f);
+                Position = ScreenMiddle;
+                Hitbox = new Rectangle((int)ScreenMiddle.X - AssetManager.DuckyLarge.Width / 2, (int)ScreenMiddle.Y - AssetManager.DuckyLarge.Height / 2, AssetManager.DuckyLarge.Width, AssetManager.DuckyLarge.Height);
 
-                if (Main.DuckyMouse.LeftButton == ButtonState.Pressed && Main.PrevDuckyMouse.LeftButton == ButtonState.Released)
+                if (Main.Cursor.Hitbox.Intersects(Main.LargeDucky.Hitbox))
                 {
-                    Main.maxScore++;
-                    Main.Score++;
-                    quack.Play();
+                    duckyScale = MathHelper.Lerp(duckyScale, 1f, 0.15f);
+                    rotationSpeed = MathHelper.Lerp(rotationSpeed, 0.75f, 0.025f);
+
+                    if (Main.DuckyMouse.LeftButton == ButtonState.Pressed && Main.PrevDuckyMouse.LeftButton == ButtonState.Released)
+                    {
+                        Main.maxScore++;
+                        Main.Score++;
+                        quack.Play();
+                    }
+                }
+                else
+                {
+                    duckyScale = MathHelper.Lerp(duckyScale, 0.75f, 0.15f);
+                    rotationSpeed = MathHelper.Lerp(rotationSpeed, 0.1f, 0.025f);
+                }
+
+                if (rotationDirection)
+                {
+                    duckyRotation += MathHelper.ToRadians(rotationSpeed);
+
+                    if (duckyRotation >= MathHelper.ToRadians(10f))
+                        rotationDirection = false;
+                }
+                else
+                {
+                    duckyRotation -= MathHelper.ToRadians(rotationSpeed);
+
+                    if (duckyRotation <= MathHelper.ToRadians(-10f))
+                        rotationDirection = true;
                 }
             }
-            else
+            else if (Game1.skinState == Game1.SkinState.Liberty)
             {
-                duckyScale = MathHelper.Lerp(duckyScale, 0.75f, 0.15f);
-                rotationSpeed = MathHelper.Lerp(rotationSpeed, 0.1f, 0.025f);
+                Position = ScreenMiddle;
+                Hitbox = new Rectangle((int)ScreenMiddle.X - AssetManager.DuckyLarge.Width / 2, (int)ScreenMiddle.Y - AssetManager.DuckyLarge.Height / 2, AssetManager.DuckyLarge.Width, AssetManager.DuckyLarge.Height);
+
+                if (Main.Cursor.Hitbox.Intersects(Main.LargeDucky.Hitbox))
+                {
+                    duckyScale = MathHelper.Lerp(duckyScale, 1f, 0.15f);
+                    rotationSpeed = MathHelper.Lerp(rotationSpeed, 0.75f, 0.025f);
+
+                    if (Main.DuckyMouse.LeftButton == ButtonState.Pressed && Main.PrevDuckyMouse.LeftButton == ButtonState.Released)
+                    {
+                        Main.maxScore++;
+                        Main.Score++;
+                        quack.Play();
+                    }
+                }
+                else
+                {
+                    duckyScale = MathHelper.Lerp(duckyScale, 0.75f, 0.15f);
+                    rotationSpeed = MathHelper.Lerp(rotationSpeed, 0.1f, 0.025f);
+                }
+
+                if (rotationDirection)
+                {
+                    duckyRotation += MathHelper.ToRadians(rotationSpeed);
+
+                    if (duckyRotation >= MathHelper.ToRadians(10f))
+                        rotationDirection = false;
+                }
+                else
+                {
+                    duckyRotation -= MathHelper.ToRadians(rotationSpeed);
+
+                    if (duckyRotation <= MathHelper.ToRadians(-10f))
+                        rotationDirection = true;
+                }
             }
-
-            if (rotationDirection)
+            else if (Game1.skinState == Game1.SkinState.Clown)
             {
-                duckyRotation += MathHelper.ToRadians(rotationSpeed);
+                Position = ScreenMiddle;
+                Hitbox = new Rectangle((int)ScreenMiddle.X - AssetManager.DuckyLarge.Width / 2, (int)ScreenMiddle.Y - AssetManager.DuckyLarge.Height / 2, AssetManager.DuckyLarge.Width, AssetManager.DuckyLarge.Height);
 
-                if (duckyRotation >= MathHelper.ToRadians(10f))
-                    rotationDirection = false;
-            }
-            else
-            {
-                duckyRotation -= MathHelper.ToRadians(rotationSpeed);
+                if (Main.Cursor.Hitbox.Intersects(Main.LargeDucky.Hitbox))
+                {
+                    duckyScale = MathHelper.Lerp(duckyScale, 1f, 0.15f);
+                    rotationSpeed = MathHelper.Lerp(rotationSpeed, 0.75f, 0.025f);
 
-                if (duckyRotation <= MathHelper.ToRadians(-10f))
-                    rotationDirection = true;
+                    if (Main.DuckyMouse.LeftButton == ButtonState.Pressed && Main.PrevDuckyMouse.LeftButton == ButtonState.Released)
+                    {
+                        Main.maxScore++;
+                        Main.Score++;
+                        quack.Play();
+                    }
+                }
+                else
+                {
+                    duckyScale = MathHelper.Lerp(duckyScale, 0.75f, 0.15f);
+                    rotationSpeed = MathHelper.Lerp(rotationSpeed, 0.1f, 0.025f);
+                }
+
+                if (rotationDirection)
+                {
+                    duckyRotation += MathHelper.ToRadians(rotationSpeed);
+
+                    if (duckyRotation >= MathHelper.ToRadians(10f))
+                        rotationDirection = false;
+                }
+                else
+                {
+                    duckyRotation -= MathHelper.ToRadians(rotationSpeed);
+
+                    if (duckyRotation <= MathHelper.ToRadians(-10f))
+                        rotationDirection = true;
+                }
             }
         }
 
-        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch) => spriteBatch.Draw(AssetManager.DuckyLarge, ScreenMiddle, null, Color.White, duckyRotation, new Vector2(AssetManager.DuckyLarge.Width, AssetManager.DuckyLarge.Height) / 2f, duckyScale, SpriteEffects.None, 0f);
+        public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+            if (Game1.skinState == Game1.SkinState.Default)
+            {
+                spriteBatch.Draw(AssetManager.DuckyLarge, ScreenMiddle, null, Color.White, duckyRotation, new Vector2(AssetManager.DuckyLarge.Width, AssetManager.DuckyLarge.Height) / 2f, duckyScale, SpriteEffects.None, 0f);
+            }
+            else if (Game1.skinState == Game1.SkinState.Liberty)
+            {
+                spriteBatch.Draw(AssetManager.LibertyDuck, ScreenMiddle, null, Color.White, duckyRotation, new Vector2(AssetManager.DuckyLarge.Width, AssetManager.DuckyLarge.Height) / 2f, duckyScale, SpriteEffects.None, 0f);
+            }
+            else if (Game1.skinState == Game1.SkinState.Clown)
+            {
+                spriteBatch.Draw(AssetManager.ClownDucky, ScreenMiddle, null, Color.White, duckyRotation, new Vector2(AssetManager.DuckyLarge.Width, AssetManager.DuckyLarge.Height) / 2f, duckyScale, SpriteEffects.None, 0f);
+            }
+        }
     }
 }
