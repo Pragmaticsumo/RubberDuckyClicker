@@ -15,7 +15,7 @@ namespace RubberDuckyClicker
         public enum GameStates { Playing, Stats, Shop, Egg, Award, Skins }
 
         public static SkinState skinState;
-        public enum SkinState { Default, Liberty, Clown, Santa }
+        public enum SkinState { Default, Liberty, Clown, Santa, Dapper, Joker, WhoCare, Woody }
 
         public Game1()
         {

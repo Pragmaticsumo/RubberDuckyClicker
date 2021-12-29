@@ -80,6 +80,9 @@ namespace RubberDuckyClicker
                 Skin.Draw02(gameTime, spriteBatch);
                 Skin.Draw03(gameTime, spriteBatch);
                 Skin.Draw04(gameTime, spriteBatch);
+                Skin.Draw05(gameTime, spriteBatch);
+                Skin.Draw06(gameTime, spriteBatch);
+                Skin.Draw07(gameTime, spriteBatch);
             }
         }
 
@@ -130,6 +133,9 @@ namespace RubberDuckyClicker
                 Skin.Update02(gameTime);
                 Skin.Update03(gameTime);
                 Skin.Update04(gameTime);
+                Skin.Update05(gameTime);
+                Skin.Update06(gameTime);
+                Skin.Update07(gameTime);
                 if (DuckyKeyboard.IsKeyDown(Keys.Escape) && PrevDuckyKeyboard.IsKeyUp(Keys.Escape))
                 {
                     click2.Play();
@@ -160,17 +166,17 @@ namespace RubberDuckyClicker
 
                 spriteBatch.DrawString(AssetManager.StatsFont, "Total Number Of Quacks: " + Convert.ToString(maxScore), Vector2.Zero, Color.LimeGreen);
                 spriteBatch.DrawString(AssetManager.StatsFont, "Total Number Of Achievements: " + Convert.ToString(achievementNumber)  + "/4", new Vector2(0, 50), Color.LimeGreen);
-                spriteBatch.DrawString(AssetManager.StatsFont, "Press 'esc' to leave...", new Vector2(470, graphicsDevice.Viewport.Height - escapeTextSize.Y), Color.LimeGreen);
+                spriteBatch.DrawString(AssetManager.AchieveFont, "Press 'esc' to leave...", new Vector2(650, graphicsDevice.Viewport.Height - escapeTextSize.Y), Color.LimeGreen);
             }
             else if (Game1.gameState == Game1.GameStates.Award)
             {
                 Vector2 escapeTextSize = AssetManager.StatsFont.MeasureString("Press 'esc' to leave...");
-                spriteBatch.DrawString(AssetManager.StatsFont, "Press 'esc' to leave...", new Vector2(470, graphicsDevice.Viewport.Height - escapeTextSize.Y), Color.LimeGreen);
+                spriteBatch.DrawString(AssetManager.AchieveFont, "Press 'esc' to leave...", new Vector2(650, graphicsDevice.Viewport.Height - escapeTextSize.Y), Color.LimeGreen);
             }
             else if (Game1.gameState == Game1.GameStates.Skins)
             {
                 Vector2 escapeTextSize = AssetManager.StatsFont.MeasureString("Press 'esc' to leave...");
-                spriteBatch.DrawString(AssetManager.StatsFont, "Press 'esc' to leave...", new Vector2(470, graphicsDevice.Viewport.Height - escapeTextSize.Y), Color.LimeGreen);
+                spriteBatch.DrawString(AssetManager.AchieveFont, "Press 'esc' to leave...", new Vector2(650, graphicsDevice.Viewport.Height - escapeTextSize.Y), Color.LimeGreen);
             }
         }
     }
