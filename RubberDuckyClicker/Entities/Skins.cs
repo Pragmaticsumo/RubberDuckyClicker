@@ -20,6 +20,7 @@ namespace RubberDuckyClicker.Entities
         public bool isSelected05 = false;
         public bool isSelected06 = false;
         public bool isSelected07 = false;
+        public bool isSelected08 = false;
 
         public Rectangle Hitbox01 = new Rectangle(0, 0, AssetManager.DuckyLarge.Width / 4, AssetManager.DuckyLarge.Height / 4);
         public Rectangle Hitbox02 = new Rectangle(70, 0, AssetManager.LibertyDuck.Width / 4, AssetManager.LibertyDuck.Height / 4);
@@ -28,6 +29,7 @@ namespace RubberDuckyClicker.Entities
         public Rectangle Hitbox05 = new Rectangle(280, 0, AssetManager.DapperDucky.Width / 4, AssetManager.DapperDucky.Height / 4);
         public Rectangle Hitbox06 = new Rectangle(350, 0, AssetManager.WhoCareDucky.Width / 4, AssetManager.WhoCareDucky.Height / 4);
         public Rectangle Hitbox07 = new Rectangle(420, 0, AssetManager.JokerDucky.Width / 4, AssetManager.JokerDucky.Height / 4);
+        public Rectangle Hitbox08 = new Rectangle(490, 0, AssetManager.PinkFloydDucky.Width / 4, AssetManager.PinkFloydDucky.Height / 4);
 
         public Color color01;
         public Color color02;
@@ -36,6 +38,7 @@ namespace RubberDuckyClicker.Entities
         public Color color05;
         public Color color06;
         public Color color07;
+        public Color color08;
 
         public void Update01(GameTime gameTime)
         {
@@ -62,6 +65,7 @@ namespace RubberDuckyClicker.Entities
                         isSelected05 = false;
                         isSelected06 = false;
                         isSelected07 = false;
+                        isSelected08 = false;
                         Game1.skinState = Game1.SkinState.Default;
                     }
                 }
@@ -93,6 +97,7 @@ namespace RubberDuckyClicker.Entities
                         isSelected05 = false;
                         isSelected06 = false;
                         isSelected07 = false;
+                        isSelected08 = false;
                         Game1.skinState = Game1.SkinState.Liberty;
                     }
                 }
@@ -124,6 +129,7 @@ namespace RubberDuckyClicker.Entities
                         isSelected05 = false;
                         isSelected06 = false;
                         isSelected07 = false;
+                        isSelected08 = false;
                         Game1.skinState = Game1.SkinState.Clown;
                     }
                 }
@@ -155,6 +161,7 @@ namespace RubberDuckyClicker.Entities
                         isSelected05 = false;
                         isSelected06 = false;
                         isSelected07 = false;
+                        isSelected08 = false;
                         Game1.skinState = Game1.SkinState.Santa;
                     }
                 }
@@ -186,6 +193,7 @@ namespace RubberDuckyClicker.Entities
                         isSelected05 = true;
                         isSelected06 = false;
                         isSelected07 = false;
+                        isSelected08 = false;
                         Game1.skinState = Game1.SkinState.Dapper;
                     }
                 }
@@ -217,6 +225,7 @@ namespace RubberDuckyClicker.Entities
                         isSelected05 = false;
                         isSelected06 = true;
                         isSelected07 = false;
+                        isSelected08 = false;
                         Game1.skinState = Game1.SkinState.WhoCare;
                     }
                 }
@@ -248,7 +257,40 @@ namespace RubberDuckyClicker.Entities
                         isSelected05 = false;
                         isSelected06 = false;
                         isSelected07 = true;
+                        isSelected08 = false;
                         Game1.skinState = Game1.SkinState.Joker;
+                    }
+                }
+            }
+        }
+
+        public void Update08(GameTime gameTime)
+        {
+            if (isSelected08 == false)
+            {
+                color08 = Color.Gray;
+            }
+            else if (isSelected08 == true)
+            {
+                color08 = Color.White;
+            }
+
+            if (Main.Cursor.Hitbox.Intersects(Hitbox08))
+            {
+                if (Main.DuckyMouse.LeftButton == ButtonState.Pressed && Main.PrevDuckyMouse.LeftButton == ButtonState.Released)
+                {
+                    if (isSelected08 == false)
+                    {
+                        Main.click1.Play();
+                        isSelected04 = false;
+                        isSelected03 = false;
+                        isSelected02 = false;
+                        isSelected01 = false;
+                        isSelected05 = false;
+                        isSelected06 = false;
+                        isSelected07 = false;
+                        isSelected08 = true;
+                        Game1.skinState = Game1.SkinState.PinkFloyd;
                     }
                 }
             }
@@ -280,7 +322,7 @@ namespace RubberDuckyClicker.Entities
             if (Main.Cursor.Hitbox.Intersects(Hitbox03))
             {
                 spriteBatch.DrawString(AssetManager.AchieveFont, "Quarters The Clown", new Vector2(0, 400), Color.Red);
-                spriteBatch.DrawString(AssetManager.AchieveFont, "(Made By DuckTober!) Buisness is BOOMIN babyyyyy", new Vector2(0, 430), Color.Red);
+                spriteBatch.DrawString(AssetManager.AchieveFont, "(Made By DuckTober!) A quarter a day keeps the clown away HAHAHA.", new Vector2(0, 430), Color.Red);
             }
         }
 
@@ -321,6 +363,16 @@ namespace RubberDuckyClicker.Entities
             {
                 spriteBatch.DrawString(AssetManager.AchieveFont, "Joker Ducky", new Vector2(0, 400), Color.Red);
                 spriteBatch.DrawString(AssetManager.AchieveFont, "(Made by HappyHammoud) We live in a society...", new Vector2(0, 430), Color.Red);
+            }
+        }
+
+        public void Draw08(GameTime gameTime, SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(AssetManager.PinkFloydDucky, new Vector2(490 + AssetManager.PinkFloydDucky.Width / 6, AssetManager.JokerDucky.Height / 4), null, color08, 0f, new Vector2(AssetManager.PinkFloydDucky.Width, AssetManager.PinkFloydDucky.Height), 1f / 6, SpriteEffects.None, 0f);
+            if (Main.Cursor.Hitbox.Intersects(Hitbox08))
+            {
+                spriteBatch.DrawString(AssetManager.AchieveFont, "Pink Floyd Ducky", new Vector2(0, 400), Color.Red);
+                spriteBatch.DrawString(AssetManager.AchieveFont, "So ya thought ya\nMight like to go to the show?", new Vector2(0, 430), Color.Red);
             }
         }
     }

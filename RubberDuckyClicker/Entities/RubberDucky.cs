@@ -289,6 +289,44 @@ namespace RubberDuckyClicker.Entities
                         rotationDirection = true;
                 }
             }
+            else if (Game1.skinState == Game1.SkinState.PinkFloyd)
+            {
+                Position = ScreenMiddle;
+                Hitbox = new Rectangle((int)ScreenMiddle.X - AssetManager.PinkFloydDucky.Width / 2, (int)ScreenMiddle.Y - AssetManager.PinkFloydDucky.Height / 2, AssetManager.PinkFloydDucky.Width, AssetManager.PinkFloydDucky.Height);
+
+                if (Main.Cursor.Hitbox.Intersects(Hitbox))
+                {
+                    duckyScale = MathHelper.Lerp(duckyScale, 1f, 0.15f);
+                    rotationSpeed = MathHelper.Lerp(rotationSpeed, 0.75f, 0.025f);
+
+                    if (Main.DuckyMouse.LeftButton == ButtonState.Pressed && Main.PrevDuckyMouse.LeftButton == ButtonState.Released)
+                    {
+                        Main.maxScore++;
+                        Main.Score++;
+                        quack.Play();
+                    }
+                }
+                else
+                {
+                    duckyScale = MathHelper.Lerp(duckyScale, 0.75f, 0.15f);
+                    rotationSpeed = MathHelper.Lerp(rotationSpeed, 0.1f, 0.025f);
+                }
+
+                if (rotationDirection)
+                {
+                    duckyRotation += MathHelper.ToRadians(rotationSpeed);
+
+                    if (duckyRotation >= MathHelper.ToRadians(10f))
+                        rotationDirection = false;
+                }
+                else
+                {
+                    duckyRotation -= MathHelper.ToRadians(rotationSpeed);
+
+                    if (duckyRotation <= MathHelper.ToRadians(-10f))
+                        rotationDirection = true;
+                }
+            }
         }
 
         public override void Draw(GameTime gameTime, SpriteBatch spriteBatch)
@@ -320,6 +358,10 @@ namespace RubberDuckyClicker.Entities
             else if (Game1.skinState == Game1.SkinState.Joker)
             {
                 spriteBatch.Draw(AssetManager.JokerDucky, ScreenMiddle, null, Color.White, duckyRotation, new Vector2(AssetManager.DuckyLarge.Width, AssetManager.DuckyLarge.Height) / 2f, duckyScale, SpriteEffects.None, 0f);
+            }
+            else if (Game1.skinState == Game1.SkinState.PinkFloyd)
+            {
+                spriteBatch.Draw(AssetManager.PinkFloydDucky, ScreenMiddle, null, Color.White, duckyRotation, new Vector2(AssetManager.PinkFloydDucky.Width, AssetManager.PinkFloydDucky.Height) / 2f, duckyScale, SpriteEffects.None, 0f);
             }
         }
     }

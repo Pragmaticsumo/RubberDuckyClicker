@@ -13,18 +13,6 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin ../../../../Duckies/StatsIcon.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:../../../../Duckies/StatsIcon.png;StatsIcon.png
-
 #begin AchieveIcons/(00)locked.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -140,6 +128,18 @@
 /processorParam:TextureFormat=Color
 /build:dapper-duckie.png
 
+#begin GamesIcons.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:GamesIcons.png
+
 #begin Gear.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -163,6 +163,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:liberty-ducky.png
+
+#begin PinkFloydDucky.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:PinkFloydDucky.png
 
 #begin quack.wav
 /importer:WavImporter

@@ -12,10 +12,10 @@ namespace RubberDuckyClicker
         public SpriteBatch DuckySpriteBatch { get; private set; }
 
         public static GameStates gameState;
-        public enum GameStates { Playing, Stats, Shop, Egg, Award, Skins }
+        public enum GameStates { Playing, Stats, Shop, Award, Skins, Games, Pong }
 
         public static SkinState skinState;
-        public enum SkinState { Default, Liberty, Clown, Santa, Dapper, Joker, WhoCare, Woody }
+        public enum SkinState { Default, Liberty, Clown, Santa, Dapper, Joker, WhoCare, PinkFloyd }
 
         public Game1()
         {
@@ -25,7 +25,7 @@ namespace RubberDuckyClicker
             IsMouseVisible = true;
         }
 
-        // Called when the program gets focused
+        // Called when the program gets focused 
         protected override void OnActivated(object sender, EventArgs args)
         {
             Window.Title = "RubberDuckyClicker";

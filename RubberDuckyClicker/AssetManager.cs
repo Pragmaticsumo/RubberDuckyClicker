@@ -21,6 +21,7 @@ namespace RubberDuckyClicker
         public static Texture2D StatIcon;
         public static Texture2D AwardIcon;
         public static Texture2D SkinsIcon;
+        public static Texture2D GamesIcon;
 
         /*Skins*/
         public static Texture2D DuckyLarge;
@@ -30,6 +31,7 @@ namespace RubberDuckyClicker
         public static Texture2D WhoCareDucky;
         public static Texture2D JokerDucky;
         public static Texture2D DapperDucky;
+        public static Texture2D PinkFloydDucky;
 
         /*AchievementIcons*/
         public static Texture2D Achieve00;
@@ -113,10 +115,12 @@ namespace RubberDuckyClicker
             DapperDucky = LoadTexture2D("dapper-duckie");
             WhoCareDucky = LoadTexture2D("WhoCare-ducky");
             JokerDucky = LoadTexture2D("society-ducky");
+            PinkFloydDucky = LoadTexture2D("PinkFloydDucky");
 
             StatIcon = LoadTexture2D("StatsIcon");
             AwardIcon = LoadTexture2D("AchieveIcons/Awards");
             SkinsIcon = LoadTexture2D("SkinsIcons");
+            GamesIcon = LoadTexture2D("GamesIcons");
 
             Achieve00 = LoadTexture2D("AchieveIcons/(00)locked");
             Achieve01 = LoadTexture2D("AchieveIcons/(03)familiar");

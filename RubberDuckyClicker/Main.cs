@@ -13,12 +13,13 @@ namespace RubberDuckyClicker
     public static class Main
     {
         /*GameStuff*/
-        public static readonly Version DuckyVersion = new Version(0, 2, 1);
-        public static readonly string VersionText = $"RubberDuckyClicker v{DuckyVersion}";
+        public static readonly Version DuckyVersion = new Version(0, 2, 2);
+        public static readonly string VersionText = $"RubberDuckyClicker Beta 1";
         public static RubberDucky LargeDucky = new RubberDucky();
         public static Cursor Cursor = new Cursor();
         public static StatIcon StatIcon = new StatIcon();
         public static AwardsIcon AwardIcon = new AwardsIcon();
+        public static GameIcon GameIcon = new GameIcon();
         public static Achievement Achievements = new Achievement();
         public static SkinsIcon SkinIcon = new SkinsIcon();
         public static Skins Skin = new Skins();
@@ -26,6 +27,7 @@ namespace RubberDuckyClicker
         public static int Score;
         public static int maxScore;
         public static int achievementNumber;
+        public static Vector2 scoreSize = Vector2.Zero;
 
         /*States*/
         public static MouseState DuckyMouse = Mouse.GetState();
@@ -58,6 +60,7 @@ namespace RubberDuckyClicker
                 StatIcon.Draw(gameTime, spriteBatch);
                 SkinIcon.Draw(gameTime, spriteBatch);
                 AwardIcon.Draw(gameTime, spriteBatch);
+                GameIcon.Draw(gameTime, spriteBatch);
             }
             else if (Game1.gameState == Game1.GameStates.Stats)
             {
@@ -83,6 +86,11 @@ namespace RubberDuckyClicker
                 Skin.Draw05(gameTime, spriteBatch);
                 Skin.Draw06(gameTime, spriteBatch);
                 Skin.Draw07(gameTime, spriteBatch);
+                Skin.Draw08(gameTime, spriteBatch);
+            }
+            else if (Game1.gameState == Game1.GameStates.Games)
+            {
+                graphicsDevice.Clear(Color.Black);
             }
         }
 
@@ -101,6 +109,7 @@ namespace RubberDuckyClicker
                 Cursor.Update(gameTime);
                 SkinIcon.Update(gameTime);
                 AwardIcon.Update(gameTime);
+                GameIcon.Update(gameTime);
 
                 Achievements.Update02(gameTime);
                 Achievements.Update03(gameTime);
@@ -136,6 +145,17 @@ namespace RubberDuckyClicker
                 Skin.Update05(gameTime);
                 Skin.Update06(gameTime);
                 Skin.Update07(gameTime);
+                Skin.Update08(gameTime);
+                if (DuckyKeyboard.IsKeyDown(Keys.Escape) && PrevDuckyKeyboard.IsKeyUp(Keys.Escape))
+                {
+                    click2.Play();
+                    Game1.gameState = Game1.GameStates.Playing;
+                }
+            }
+            else if (Game1.gameState == Game1.GameStates.Games)
+            {
+                Cursor.Update(gameTime);
+
                 if (DuckyKeyboard.IsKeyDown(Keys.Escape) && PrevDuckyKeyboard.IsKeyUp(Keys.Escape))
                 {
                     click2.Play();
@@ -152,20 +172,33 @@ namespace RubberDuckyClicker
                 Vector2 versionPosFullscreen = new Vector2(0, WindowMeasurements.Y - versionTextSize.Y);
                 Vector2 versionPosWindowed = new Vector2(0, graphicsDevice.Viewport.Height - versionTextSize.Y);
 
-                Vector2 scoreSize = AssetManager.TheFont.MeasureString("Quacks" + Convert.ToString(Score));
+                if (Skin.isSelected08 == false)
+                {
+                    scoreSize = AssetManager.TheFont.MeasureString("Quacks" + Convert.ToString(Score));
+                }
+                else if (Skin.isSelected08 == true)
+                {
+                    scoreSize = AssetManager.TheFont.MeasureString("Bricks" + Convert.ToString(Score));
+                }
 
                 Vector2 scorePosWindowed = new Vector2(RubberDucky.ScreenMiddle.X - scoreSize.X, 40);
 
                 spriteBatch.DrawString(AssetManager.TheFont, VersionText, graphicsDeviceManager.IsFullScreen ? versionPosFullscreen : versionPosWindowed, Color.White);
-
-                spriteBatch.DrawString(AssetManager.Score, "Quacks: " + Convert.ToString(Score), scorePosWindowed, Color.White);
+                if (Skin.isSelected08 == false)
+                {
+                    spriteBatch.DrawString(AssetManager.Score, "Quacks: " + Convert.ToString(Score), scorePosWindowed, Color.White);
+                }
+                else if (Skin.isSelected08 == true)
+                {
+                    spriteBatch.DrawString(AssetManager.Score, "Bricks: " + Convert.ToString(Score), scorePosWindowed, Color.White);
+                }
             }
             else if (Game1.gameState == Game1.GameStates.Stats)
             {
                 Vector2 escapeTextSize = AssetManager.StatsFont.MeasureString("Press 'esc' to leave...");
 
                 spriteBatch.DrawString(AssetManager.StatsFont, "Total Number Of Quacks: " + Convert.ToString(maxScore), Vector2.Zero, Color.LimeGreen);
-                spriteBatch.DrawString(AssetManager.StatsFont, "Total Number Of Achievements: " + Convert.ToString(achievementNumber)  + "/4", new Vector2(0, 50), Color.LimeGreen);
+                spriteBatch.DrawString(AssetManager.StatsFont, "Total Number Of Achievements: " + Convert.ToString(achievementNumber) + "/4", new Vector2(0, 50), Color.LimeGreen);
                 spriteBatch.DrawString(AssetManager.AchieveFont, "Press 'esc' to leave...", new Vector2(650, graphicsDevice.Viewport.Height - escapeTextSize.Y), Color.LimeGreen);
             }
             else if (Game1.gameState == Game1.GameStates.Award)
@@ -175,6 +208,12 @@ namespace RubberDuckyClicker
             }
             else if (Game1.gameState == Game1.GameStates.Skins)
             {
+                Vector2 escapeTextSize = AssetManager.StatsFont.MeasureString("Press 'esc' to leave...");
+                spriteBatch.DrawString(AssetManager.AchieveFont, "Press 'esc' to leave...", new Vector2(650, graphicsDevice.Viewport.Height - escapeTextSize.Y), Color.LimeGreen);
+            }
+            else if (Game1.gameState == Game1.GameStates.Games)
+            {
+                spriteBatch.DrawString(AssetManager.AchieveFont, "COMING EVENTUALLY :D", Vector2.Zero, Color.DeepPink);
                 Vector2 escapeTextSize = AssetManager.StatsFont.MeasureString("Press 'esc' to leave...");
                 spriteBatch.DrawString(AssetManager.AchieveFont, "Press 'esc' to leave...", new Vector2(650, graphicsDevice.Viewport.Height - escapeTextSize.Y), Color.LimeGreen);
             }
